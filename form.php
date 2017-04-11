@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>PHP</title>
+    <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'/>
 </head>
 <body>
     <?php
@@ -92,8 +93,14 @@
                 <option value="fr">French</option>
                 <option value="it">Italian</option>
             </select><br>
-  Comments: <textarea name="comments"></textarea><br>
-        <input type="checkbox" name="tc" value="ok">I accept the T&C<br>
+  Comments: <textarea name="comments" value="<?php 
+    echo htmlspecialchars($comments);
+  ?>"></textarea><br>
+        <input type="checkbox" name="tc" value="ok"<?php 
+            if ($tc === 'ok'){
+                echo checked;
+            }
+        ?>>I accept the T&C<br>
         <input type="submit" name="submit" value="submit"/>
     </form>
 </body>
